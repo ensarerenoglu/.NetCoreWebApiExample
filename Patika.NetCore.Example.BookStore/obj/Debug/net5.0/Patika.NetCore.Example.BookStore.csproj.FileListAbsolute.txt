@@ -11,7 +11,6 @@ C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Pati
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\obj\Debug\net5.0\Patika.NetCore.Example.BookStore.csproj.AssemblyReference.cache
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\obj\Debug\net5.0\Patika.NetCore.Example.BookStore.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\obj\Debug\net5.0\Patika.NetCore.Example.BookStore.AssemblyInfoInputs.cache
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\obj\Debug\net5.0\Patika.NetCore.Example.BookStore.AssemblyInfo.cs
@@ -32,3 +31,9 @@ C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Pati
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

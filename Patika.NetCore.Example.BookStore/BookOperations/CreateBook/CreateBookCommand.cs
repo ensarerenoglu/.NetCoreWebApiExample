@@ -1,4 +1,5 @@
-﻿using Patika.NetCore.Example.BookStore.DBOperations;
+﻿using AutoMapper;
+using Patika.NetCore.Example.BookStore.DBOperations;
 using Patika.NetCore.Example.BookStore.Entity;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,11 @@ namespace Patika.NetCore.Example.BookStore.BookOperations.CreateBook
     {
         public CreateBookModel Model { get; set; }
         private readonly BookStoreDbContext _dbContext;
-        public CreateBookCommand(BookStoreDbContext dbContext)
+        private readonly IMapper _mapper;
+        public CreateBookCommand(BookStoreDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public void Handle()
@@ -23,11 +26,8 @@ namespace Patika.NetCore.Example.BookStore.BookOperations.CreateBook
             {
                 throw new InvalidOperationException("Kitap zaten mevcut");
             }
-            book = new Book();
-            book.Title = Model.Title;
-            book.PublishDate = Model.PublishDate;
-            book.GenreID = Model.GenreID;
-            book.PageCount = Model.PageCount;
+            book = _mapper.Map<Book>(Model);
+            
             _dbContext.Add(book);
             _dbContext.SaveChanges();
 
