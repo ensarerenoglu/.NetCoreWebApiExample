@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Patika.NetCore.Example.BookStore.BookOperations.CreateBook;
@@ -41,18 +42,27 @@ namespace Patika.NetCore.Example.BookStore.Controllers
         [HttpGet("{id}")]
         public IActionResult GetbyId(int id)
         {
-            BookDetailViewModel result;
+            BookDetailViewModel bookDetailViewModel;
             try
             {
                 GetBookDetailQuery query = new GetBookDetailQuery(_context,_mapper);
                 query.BookId = id;
-                result = query.Handle();
+                GetBookDetailQueryValidator validator = new GetBookDetailQueryValidator();
+                ValidationResult result = validator.Validate(query);
+                if (!result.IsValid)
+                {
+                    return BadRequest(result.Errors);
+                }
+                else
+                {
+                    bookDetailViewModel = query.Handle();
+                }
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            return Ok(result);
+            return Ok(bookDetailViewModel);
         }
 
         [HttpPost]
@@ -62,7 +72,16 @@ namespace Patika.NetCore.Example.BookStore.Controllers
             try
             {
                 command.Model = newBook;
-                command.Handle();
+                CreateBookCommandValidator validator = new CreateBookCommandValidator();
+                ValidationResult result =  validator.Validate(command);
+                if (!result.IsValid)
+                {
+                    return BadRequest(result.Errors);
+                }
+                else
+                {
+                    command.Handle();
+                }
             }
             catch (Exception ex)
             {
@@ -78,11 +97,20 @@ namespace Patika.NetCore.Example.BookStore.Controllers
                 UpdateBookCommand command = new UpdateBookCommand(_context);
                 command.BookId = id;
                 command.Model = updatedBook;
-                command.Handle();
+                UpdateBookCommandValidator validator = new UpdateBookCommandValidator();
+                ValidationResult result = validator.Validate(command);
+                if (!result.IsValid)
+                {
+                    return BadRequest(result.Errors);
+                }
+                else
+                {
+                    command.Handle();
+                }
+                
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
             return Ok();
@@ -96,7 +124,17 @@ namespace Patika.NetCore.Example.BookStore.Controllers
             {
                 DeleteBookCommand command = new DeleteBookCommand(_context);
                 command.BookId = id;
-                command.Handle();
+                DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
+                ValidationResult result =  validator.Validate(command);
+                if (!result.IsValid)
+                {
+                    return BadRequest(result.Errors);
+                }
+                else
+                {
+                    command.Handle();
+                }
+                
             }
             catch (Exception ex)
             {
