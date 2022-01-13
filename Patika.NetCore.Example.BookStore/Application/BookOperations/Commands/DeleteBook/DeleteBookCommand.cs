@@ -19,7 +19,7 @@ namespace Patika.NetCore.Example.BookStore.BookOperations.DeleteBook
         public void Handle()
         {
 
-            if (BookId == 0)
+            if (BookId <= 0)
             {
                 throw new InvalidOperationException("Silinecek kitap bulunmadı");
             }

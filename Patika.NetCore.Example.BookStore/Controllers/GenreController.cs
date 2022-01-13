@@ -8,8 +8,7 @@ using Patika.NetCore.Example.BookStore.Application.GenreOperations.Commands.Dele
 using Patika.NetCore.Example.BookStore.Application.GenreOperations.Commands.UpdateGenre;
 using Patika.NetCore.Example.BookStore.Application.GenreOperations.Queries.GetGenreDetail;
 using Patika.NetCore.Example.BookStore.Application.GenreOperations.Queries.GetGenres;
-using Patika.NetCore.Example.BookStore.BookOperations.CreateBook;
-using Patika.NetCore.Example.BookStore.BookOperations.GetBookDetail;
+
 using Patika.NetCore.Example.BookStore.DBOperations;
 using System;
 using static Patika.NetCore.Example.BookStore.Application.GenreOperations.Commands.CreateGenre.CreateGenreCommand;

@@ -10,7 +10,7 @@ using Patika.NetCore.Example.BookStore.Middlewares;
 using Patika.NetCore.Example.BookStore.Services;
 
 using System.Reflection;
-
+using System.Text.Json.Serialization;
 
 namespace Patika.NetCore.Example.BookStore
 {
@@ -35,6 +35,7 @@ namespace Patika.NetCore.Example.BookStore
             services.AddDbContext<BookStoreDbContext>(options => options.UseInMemoryDatabase(databaseName: "BookStoreDB"));
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddSingleton<ILoggerService, ConsoleLogger>();
+           
 
         }
 
@@ -53,7 +54,8 @@ namespace Patika.NetCore.Example.BookStore
             app.UseRouting();
 
             app.UseAuthorization();
-
+            
+            // Todo: Tek bir try catch in düzgün çalýþmasý için kontrol edilecek 
             app.UseCustomExceptionMiddle();
 
             app.UseEndpoints(endpoints =>

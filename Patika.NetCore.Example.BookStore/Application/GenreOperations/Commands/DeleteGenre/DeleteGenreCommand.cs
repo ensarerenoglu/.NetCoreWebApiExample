@@ -1,7 +1,7 @@
 ﻿
 using Patika.NetCore.Example.BookStore.DBOperations;
 using System;
-
+using System.Linq;
 
 namespace Patika.NetCore.Example.BookStore.Application.GenreOperations.Commands.DeleteGenre
 {
@@ -25,6 +25,12 @@ namespace Patika.NetCore.Example.BookStore.Application.GenreOperations.Commands.
             {
                 throw new InvalidOperationException("Silinecek kategori bulunamadı!");
             }
+            var books = _dbContext.Books.Where(x => x.GenreID == GenreId);
+            if (books != null)
+            {
+                throw new InvalidOperationException("Silmek istediğiniz kategoriye ait kitaplar bulunmaktadır.");
+            }
+            
             _dbContext.Genres.Remove(genre);
             _dbContext.SaveChanges();
         }
