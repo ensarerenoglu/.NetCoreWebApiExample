@@ -39,3 +39,4 @@ C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Pati
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\obj\Debug\net5.0\Patika.NetCore.Example.BookStore.csproj.AssemblyReference.cache
+C:\Users\o_nea\source\repos\.NetCorePatika\Patika.NetCore.Example.BookStore\Patika.NetCore.Example.BookStore\bin\Debug\net5.0\Newtonsoft.Json.dll

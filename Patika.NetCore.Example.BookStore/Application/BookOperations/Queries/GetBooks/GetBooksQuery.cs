@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Patika.NetCore.Example.BookStore.Common;
 using Patika.NetCore.Example.BookStore.DBOperations;
 using Patika.NetCore.Example.BookStore.Entity;
@@ -21,7 +22,7 @@ namespace Patika.NetCore.Example.BookStore.BookOperations.GetBooks
 
         public List<BooksViewModel> Handle()
         {
-            var bookList = _dbContext.Books.OrderBy(x => x.ID).ToList();
+            var bookList = _dbContext.Books.Include(x=>x.Genre).OrderBy(x => x.ID).ToList();
             List<BooksViewModel> vm = _mapper.Map<List<BooksViewModel>>(bookList);
             
             return vm;

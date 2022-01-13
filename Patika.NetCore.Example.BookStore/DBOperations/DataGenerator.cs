@@ -18,11 +18,19 @@ namespace Patika.NetCore.Example.BookStore.DBOperations
                 {
                     return;
                 }
+                context.Genres.AddRange(
+                        new Genre { Name = "Personel Growth" },
+                        new Genre { Name = "Science Fiction" },
+                        new Genre { Name = "Romance" }
+                    );
                 context.Books.AddRange(
                         new Book {  Title = "Lean Startup", GenreID = 1, PageCount = 200, PublishDate = new DateTime(2001, 06, 12) },
                         new Book {  Title = "Mariland", GenreID = 2, PageCount = 300, PublishDate = new DateTime(2005, 07, 11) },
                         new Book {  Title = "Dune", GenreID = 3, PageCount = 400, PublishDate = new DateTime(2011, 02, 21) }
                     );
+                
+
+                
                 context.SaveChanges();
 
             }

@@ -1,18 +1,15 @@
 ﻿using AutoMapper;
-using FluentValidation.Results;
-using Microsoft.AspNetCore.Http;
+using FluentValidation;
+
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Patika.NetCore.Example.BookStore.BookOperations.CreateBook;
 using Patika.NetCore.Example.BookStore.BookOperations.DeleteBook;
 using Patika.NetCore.Example.BookStore.BookOperations.GetBookDetail;
 using Patika.NetCore.Example.BookStore.BookOperations.GetBooks;
 using Patika.NetCore.Example.BookStore.BookOperations.UpdateBook;
 using Patika.NetCore.Example.BookStore.DBOperations;
-using Patika.NetCore.Example.BookStore.Entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using static Patika.NetCore.Example.BookStore.BookOperations.CreateBook.CreateBookCommand;
 using static Patika.NetCore.Example.BookStore.BookOperations.GetBookDetail.GetBookDetailQuery;
 using static Patika.NetCore.Example.BookStore.BookOperations.UpdateBook.UpdateBookCommand;
@@ -43,25 +40,21 @@ namespace Patika.NetCore.Example.BookStore.Controllers
         public IActionResult GetbyId(int id)
         {
             BookDetailViewModel bookDetailViewModel;
+
             try
             {
-                GetBookDetailQuery query = new GetBookDetailQuery(_context,_mapper);
+                GetBookDetailQuery query = new GetBookDetailQuery(_context, _mapper);
                 query.BookId = id;
                 GetBookDetailQueryValidator validator = new GetBookDetailQueryValidator();
-                ValidationResult result = validator.Validate(query);
-                if (!result.IsValid)
-                {
-                    return BadRequest(result.Errors);
-                }
-                else
-                {
-                    bookDetailViewModel = query.Handle();
-                }
+                validator.ValidateAndThrow(query);
+
+                bookDetailViewModel = query.Handle();
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
+
             return Ok(bookDetailViewModel);
         }
 
@@ -73,19 +66,13 @@ namespace Patika.NetCore.Example.BookStore.Controllers
             {
                 command.Model = newBook;
                 CreateBookCommandValidator validator = new CreateBookCommandValidator();
-                ValidationResult result =  validator.Validate(command);
-                if (!result.IsValid)
-                {
-                    return BadRequest(result.Errors);
-                }
-                else
-                {
-                    command.Handle();
-                }
+                validator.ValidateAndThrow(command);
+                command.Handle();
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var result = JsonConvert.SerializeObject(new { error = ex.Message });
+                return BadRequest(result);
             }
             return Ok();
         }
@@ -98,16 +85,9 @@ namespace Patika.NetCore.Example.BookStore.Controllers
                 command.BookId = id;
                 command.Model = updatedBook;
                 UpdateBookCommandValidator validator = new UpdateBookCommandValidator();
-                ValidationResult result = validator.Validate(command);
-                if (!result.IsValid)
-                {
-                    return BadRequest(result.Errors);
-                }
-                else
-                {
-                    command.Handle();
-                }
-                
+                validator.ValidateAndThrow(command);
+                command.Handle();
+
             }
             catch (Exception ex)
             {
@@ -125,16 +105,8 @@ namespace Patika.NetCore.Example.BookStore.Controllers
                 DeleteBookCommand command = new DeleteBookCommand(_context);
                 command.BookId = id;
                 DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
-                ValidationResult result =  validator.Validate(command);
-                if (!result.IsValid)
-                {
-                    return BadRequest(result.Errors);
-                }
-                else
-                {
-                    command.Handle();
-                }
-                
+                validator.ValidateAndThrow(command);
+                command.Handle();
             }
             catch (Exception ex)
             {

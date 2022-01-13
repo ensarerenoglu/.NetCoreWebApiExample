@@ -1,8 +1,8 @@
 ﻿using Patika.NetCore.Example.BookStore.DBOperations;
 using System;
-using System.Collections.Generic;
+
 using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Patika.NetCore.Example.BookStore.BookOperations.DeleteBook
 {
@@ -21,7 +21,7 @@ namespace Patika.NetCore.Example.BookStore.BookOperations.DeleteBook
 
             if (BookId == 0)
             {
-                throw new InvalidOperationException("Silinecek kitap bulunmaadı");
+                throw new InvalidOperationException("Silinecek kitap bulunmadı");
             }
             var book = _dbContext.Books.SingleOrDefault(x => x.ID == BookId);
             if (book == null)

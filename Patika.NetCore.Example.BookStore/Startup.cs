@@ -1,19 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Patika.NetCore.Example.BookStore.DBOperations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Patika.NetCore.Example.BookStore.Middlewares;
+using Patika.NetCore.Example.BookStore.Services;
+
 using System.Reflection;
-using System.Threading.Tasks;
+
 
 namespace Patika.NetCore.Example.BookStore
 {
@@ -37,6 +34,7 @@ namespace Patika.NetCore.Example.BookStore
             });
             services.AddDbContext<BookStoreDbContext>(options => options.UseInMemoryDatabase(databaseName: "BookStoreDB"));
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddSingleton<ILoggerService, ConsoleLogger>();
 
         }
 
@@ -55,6 +53,8 @@ namespace Patika.NetCore.Example.BookStore
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCustomExceptionMiddle();
 
             app.UseEndpoints(endpoints =>
             {

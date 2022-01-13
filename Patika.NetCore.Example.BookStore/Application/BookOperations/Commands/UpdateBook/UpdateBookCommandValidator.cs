@@ -12,7 +12,7 @@ namespace Patika.NetCore.Example.BookStore.BookOperations.UpdateBook
         {
             RuleFor(command => command.BookId).GreaterThan(0);
             RuleFor(command => command.Model.GenreId).GreaterThan(0);
-            RuleFor(command => command.Model.Title).Length(4, 50);
+            RuleFor(command => command.Model.Title).NotEmpty().Length(4, 50);
         }
     }
 }

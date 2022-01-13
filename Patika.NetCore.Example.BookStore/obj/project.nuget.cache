@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zt6OtMEN4M6mhmQ++wC9sVowOBHMkvJJbgi8bFCFJfSsDjRJ1uPTA4TQ96nE/ik0WnkG11tcWrrxfluhzHJYOQ==",
+  "dgSpecHash": "VPVvfV2rqrIfZXMe0WtUV/gnQxvOpNIVhJdnocNdkyZaaV4ht5k288BEJQh4F3jevoW49EMl1y+GXNyJCyKWDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\o_nea\\source\\repos\\.NetCorePatika\\Patika.NetCore.Example.BookStore\\Patika.NetCore.Example.BookStore\\Patika.NetCore.Example.BookStore.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\o_nea\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

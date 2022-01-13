@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Patika.NetCore.Example.BookStore.Common;
 using Patika.NetCore.Example.BookStore.DBOperations;
 using Patika.NetCore.Example.BookStore.Entity;
@@ -22,7 +23,7 @@ namespace Patika.NetCore.Example.BookStore.BookOperations.GetBookDetail
         }
         public BookDetailViewModel Handle()
         {
-            var book = _dbContext.Books.Where(x => x.ID == BookId).FirstOrDefault();
+            var book = _dbContext.Books.Include(x=>x.Genre).Where(x => x.ID == BookId).FirstOrDefault();
             if (book == null)
             {
                 throw new InvalidOperationException("Aradığınız kitap bulunamadı");
